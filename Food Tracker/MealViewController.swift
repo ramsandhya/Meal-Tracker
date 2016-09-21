@@ -60,6 +60,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
 //    This method lets you configure a view controller before its presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        // saveButton is the sender of segue. Sender can be Any object as per the parameter sender: Any?. So, it needs to be downcast when used ina function using as! operator.
+        // name photo and rating constants are being assingned to the data eneterd by user. This constant has a scope locally and can be edited using the edit feature later on, so using let doesn't matter. var holds a complex memory management than let.  
         if saveButton === sender as! UIBarButtonItem {
             let name = nameTextField.text ?? ""
             let photo = photoImageView.image
