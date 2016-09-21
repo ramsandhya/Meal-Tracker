@@ -75,7 +75,8 @@ class MealTableViewController: UITableViewController  {
         return cell
     }
     
-    // @IBAction is a special annotation which can be used to bind the function with some event. When save button is clicked this func is called
+    // @IBAction is a special annotation which can be used to bind the function with some event. When save button is clicked this func is called.
+    // 
     @IBAction func unwindToMealList(sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
             

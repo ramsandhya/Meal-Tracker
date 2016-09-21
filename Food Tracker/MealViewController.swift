@@ -32,7 +32,19 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     func  textFieldDidEndEditing(_ textField: UITextField) {
 //        mealNameLabel.text = textField.text
-        
+        checkValidMealName()
+        navigationItem.title = textField.text
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the save button while editing
+        saveButton.isEnabled = false
+    }
+    
+    func checkValidMealName() {
+        // Disable the Save Button if the text field is empty.
+        let text = nameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -57,12 +69,23 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     // MARK: Navigation
     
-//    This method lets you configure a view controller before its presented.
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    
+    }
+
+    
+    // This method lets you configure a view controller before its presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // saveButton is the sender of segue. Sender can be Any object as per the parameter sender: Any?. So, it needs to be downcast when used ina function using as! operator.
-        // name photo and rating constants are being assingned to the data eneterd by user. This constant has a scope locally and can be edited using the edit feature later on, so using let doesn't matter. var holds a complex memory management than let.  
-        if saveButton === sender as! UIBarButtonItem {
+        // name photo and rating constants are being assingned to the data eneterd by user. This constant has a scope locally and can be edited using the edit feature later on, so using let doesn't matter. var holds a complex memory management than let.
+        // saveButton is a reference to the sender. SO we need to check if saveButton is of type
+        // Other option:
+        // if let btn = sender as? UIBarButtonItem, let title = btn.title  {
+        //  if title == "Save" {
+        if saveButton === sender as? UIBarButtonItem {
             let name = nameTextField.text ?? ""
             let photo = photoImageView.image
             let rating = ratingControl.rating
@@ -102,6 +125,9 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         
         // Handle the text field's user input through delegate callbacks.
         nameTextField.delegate = self
+        
+        // Enable the save button only if the text field has a valid Meal name during implementation
+        checkValidMealName()
     }
 
 }

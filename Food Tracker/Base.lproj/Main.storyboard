@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Fj-zL-ep6" id="00g-JW-dvv">
-                                    <frame key="frameInset" width="375" height="90"/>
+                                    <frame key="frameInset" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="rL3-8n-y6t">
@@ -112,7 +112,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="rep-L9-6Tq">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="69C-8F-N4R"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="69C-8F-N4R">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="IlB-WG-WBj"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Zbv-31-HlO">
                             <connections>
                                 <segue destination="Y7A-bu-1uB" kind="unwind" unwindAction="unwindToMealListWithSender:" id="uMM-pA-sZs"/>
