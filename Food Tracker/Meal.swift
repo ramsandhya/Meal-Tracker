@@ -14,18 +14,25 @@ class Meal: NSObject, NSCoding {
     var photo: UIImage?
     var rating: Int
     
+    // MARK: Archiving Paths
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("meals")
+    
     // MARK: Types
     struct PropertyKey {
-        static let nameKey = "X"
-        static let photoKey = "Y"
-        static let ratingKey = "Z"
+        static let nameKey = "name"
+        static let photoKey = "photo"
+        static let ratingKey = "rating"
     }
     
     // MARK: Initializer
     init?(name: String, photo: UIImage?, rating: Int){
+        
+        // Initialize stored properties
         self.name = name
         self.photo = photo
         self.rating = rating
+        super.init()
         
         // Initialization should fail if there is no name or if the rating is negative.        
         if name.isEmpty || rating < 0 {
