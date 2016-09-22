@@ -155,5 +155,12 @@ class MealTableViewController: UITableViewController  {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-
+    
+    // MARK: NSCoding
+    func saveMeals() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
+        if !isSuccessfulSave {
+            print("Failed to save meals.")
+        }
+    }
 }
