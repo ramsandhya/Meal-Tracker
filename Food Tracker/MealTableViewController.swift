@@ -122,14 +122,26 @@ class MealTableViewController: UITableViewController  {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            let mealDetailController = segue.destination as! MealViewController
+            
+            // Get the cell that generated the segue
+            if let selectedMealCell = sender as? MealTableViewCell{
+                let indexPath = tableView.indexPath(for: selectedMealCell)!
+                let selectedMeal = meals[(indexPath.row)]
+                mealDetailController.meal = selectedMeal
+            }
+        }
+        else if segue.identifier == "AddItem" {
+           print("Adding a new meal.")
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

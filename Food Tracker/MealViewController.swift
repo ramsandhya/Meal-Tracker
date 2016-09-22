@@ -126,6 +126,14 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Handle the text field's user input through delegate callbacks.
         nameTextField.delegate = self
         
+        // Set up views if editing an existing meal
+        if let meal = self.meal {
+            navigationItem.title = meal.name
+            nameTextField.text = meal.name
+            photoImageView.image = meal.photo
+            ratingControl.rating = meal.rating
+        }
+        
         // Enable the save button only if the text field has a valid Meal name during implementation
         checkValidMealName()
     }

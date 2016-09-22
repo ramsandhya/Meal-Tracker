@@ -35,7 +35,7 @@ class RatingControl: UIView {
         
         for _ in 0..<starCount{
             let button = UIButton()
-            button.setImage(emptyStarImage, for: UIControlState())
+            button.setImage(emptyStarImage, for: .normal)
             button.setImage(filledStarImage, for: .selected)
             button.setImage(filledStarImage, for: [.highlighted, .selected])
 //            button.backgroundColor = UIColor.redColor()
