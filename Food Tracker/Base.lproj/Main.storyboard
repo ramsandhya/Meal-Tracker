@@ -180,13 +180,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVZ-Z4-i3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2036" y="751"/>
+            <point key="canvasLocation" x="2004" y="349"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultImage" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fp5-34-Yiy"/>
+        <segue reference="rTP-RG-zsE"/>
     </inferredMetricsTieBreakers>
 </document>
