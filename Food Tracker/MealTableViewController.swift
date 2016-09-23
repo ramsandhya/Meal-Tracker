@@ -38,12 +38,11 @@ class MealTableViewController: UITableViewController  {
         }
         // otherwise load sample data
         else {
+        // Load the sample data
            loadSampleMeals()
         }
         
-        // Load the sample data
-        loadSampleMeals()
-        
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
