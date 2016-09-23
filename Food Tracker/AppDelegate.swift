@@ -41,6 +41,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
+
+// NOTES:
+// This app is fully Swift 3 compatible. The developer.apple still has Swift 2 Implementation.
+/*
+ @UIApplicationMain is the attribute with following responsibilities :
+ 1. Creates UIApplication object- It takes care of the whole lifecycle of the app
+ 2. Creates UIAppDelegate object- It creates a window property to where the app's content is drawn. ALso, takes care of the state transitions within the app.
+ AppDelegate class is blueprint of AppDelegate object instance.
+ AppDelegate class has a single UIWIndow property which is optional and it can have no value at some point i.e. nil value.
+ 
+ AppDelegate class contains some predefined methods(I call it native methods) which lets applicaton object talk to the delegate object.
+ 
+ 
+ */
+
+
+
+
+
+
+
+
 
