@@ -32,8 +32,17 @@ class MealTableViewController: UITableViewController  {
         // Use the edit button item provoded by the table view controller
         navigationItem.leftBarButtonItem = editButtonItem
         
-        loadSampleMeals()
+        // Load any saved meals.
+        if let savedMeals = loadMeals() {
+            meals += savedMeals
+        }
+        // otherwise load sample data
+        else {
+           loadSampleMeals()
+        }
+        
         // Load the sample data
+        loadSampleMeals()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
