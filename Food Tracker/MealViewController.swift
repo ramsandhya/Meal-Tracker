@@ -25,11 +25,13 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     
     // MARK: UITextFieldDelegate
-    
+    // The text field becomes the first responder when user clicks on it. When user types and clicks on the return or done button this method is called. Then the text field resigns being first responder.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
+    // This method is called and it takes the text field content and updates the label.
     func  textFieldDidEndEditing(_ textField: UITextField) {
 //        mealNameLabel.text = textField.text
         checkValidMealName()
