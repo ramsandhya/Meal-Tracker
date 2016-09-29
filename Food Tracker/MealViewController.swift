@@ -13,8 +13,14 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     // MARK: Properties
     
     @IBOutlet weak var nameTextField: UITextField!
+    // Image View object is a view not control. So, it can't initiate an action. It is created here as an outlet. Later, an tap gesture recognizer is assigned to the image view and that tap recognizer initiates the action based on user's interaction. The interaction can be swipe or tap. Now, this gesture recognizer initiates the action. The function initiated by the tap gesture is under Actions section named selectImageFromLibrary function.
+    // Outlets are nothing but pointers in the controllers to store the references of the UI views.
+    // Views: Label, Image View
+    // Controls: Button, Textfield
+    // Gesture recognizer is used to get the same functionality as Control which is not possible with views.
     
 //    @IBOutlet weak var mealNameLabel: UILabel!
+    
     
     @IBOutlet weak var photoImageView: UIImageView!
 
@@ -108,21 +114,25 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     // MARK: Actions
-    
+    // // At the tap of the image view, this method is called
     @IBAction func selectImageFromLibrary(_ sender: UITapGestureRecognizer) {
-        
+         //Now, xcode wants to make sure that user is switching from typing. So, the textfield need to resign being first responder.
         // Hide the keyboard.
         nameTextField.resignFirstResponder()
         
+        // A new custom imagePickerController is created and stored in constant imagePickerController. It is created to take care of the process of selecting images from the photo library.
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
         
+        //
         // Only allow photos to be picked, not taken.
         imagePickerController.sourceType = .photoLibrary
         
+        // View Controller is the delegate for the imageViewController because it is defined in the View Controller's scope.
         // Make sure ViewController is notified when the user picks an image.
         imagePickerController.delegate = self
         
+        // The ViewCOntroller will present the imagePickerController in animated form.
         present(imagePickerController, animated: true, completion: nil)
     
     }
