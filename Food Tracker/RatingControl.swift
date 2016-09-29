@@ -33,6 +33,7 @@ class RatingControl: UIView {
         let filledStarImage = UIImage(named: "filledStar")
         let emptyStarImage = UIImage(named: "emptyStar")
         // the addTarget method is used to connect button with the ratingButtonTapped function in the code itself. So, we are not creating the IBAction attribute. We can see how the view can be created without using Interface Builder.
+        // The rating property is created to track the numbers in the rating buttons. RatingButtons is an array to create the rating button at runtime. for in loop is used to create 5 red squares and add them to the array. Later the button is added to the subview.
         for _ in 0..<starCount{
             let button = UIButton()
             button.setImage(emptyStarImage, for: .normal)
@@ -45,6 +46,7 @@ class RatingControl: UIView {
             addSubview(button)
         }
     }
+    
     
     override func layoutSubviews(){
         
