@@ -47,7 +47,7 @@ class RatingControl: UIView {
         }
     }
     
-    
+    // layout subviews is a native method of UIView. So, we need to override it to write our own version. Here, in the for loop we enumerate through the RatingControl array and enumerated() method returns a collection of tuples. Tuples are groups of values. Here we are returning the values as index and button i.e. 5 indexes and 5 buttons. The position of frame is calculated based on the spacing and the button's starting point.
     override func layoutSubviews(){
         
         let buttonSize = Int(frame.size.height)
@@ -72,7 +72,7 @@ class RatingControl: UIView {
     
     
     // MARK: Button Action
-    
+    // rating value of the button is its index plus 1. The forced unwrap is used because we know that button is for sure of type UIButton.
     func ratingButtonTapped(_ button: UIButton) {
 //        print("Button pressed")
         rating = ratingButtons.index(of: button)! + 1
@@ -81,6 +81,7 @@ class RatingControl: UIView {
         updateButtonSelectionStates()
     }
     
+    // the iteration looks if the index of the button is less than its rating thenonly the button is conidered to be selected.
     func updateButtonSelectionStates() {
         for (index, button) in ratingButtons.enumerated(){
             // If the index of a button is less than the rating, that button should be selected.
