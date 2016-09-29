@@ -56,9 +56,10 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     // MARK: UIImagePickerControllerDelegate
-    
+    // SOme native methods which Image Picker Controllers might need to call are these 2 delegate methods.
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         
+        // User might think of clicking on the Cancel button during the process of selecting image.
         // DIsmiss the picker if the user cancelled
         dismiss(animated: true, completion: nil)
     }
@@ -80,7 +81,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         
-        // Depending on style of presentation (modal or push presentation), this view Contoroller needs to be dismisses in two different ways.
+        // Depending on style of presentation (modal or push presentation), this view Contoroller needs to be dismissed in two different ways.
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
         
         if isPresentingInAddMealMode {

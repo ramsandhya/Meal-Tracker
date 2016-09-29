@@ -27,12 +27,12 @@ class RatingControl: UIView {
     // MARK: Initialization
     
     required init?(coder aDecoder: NSCoder) {
-      
+      // the superclass init is passed with aDecoder as a parameter
         super.init(coder: aDecoder)
         
         let filledStarImage = UIImage(named: "filledStar")
         let emptyStarImage = UIImage(named: "emptyStar")
-        
+        // the addTarget method is used to connect button with the ratingButtonTapped function in the code itself. So, we are not creating the IBAction attribute. We can see how the view can be created without using Interface Builder.
         for _ in 0..<starCount{
             let button = UIButton()
             button.setImage(emptyStarImage, for: .normal)
