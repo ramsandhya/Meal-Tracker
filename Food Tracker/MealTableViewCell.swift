@@ -30,3 +30,4 @@ class MealTableViewCell: UITableViewCell {
     }
 
 }
+
