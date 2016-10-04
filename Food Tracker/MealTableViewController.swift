@@ -98,6 +98,10 @@ class MealTableViewController: UITableViewController  {
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
             else {
+            // unwindToMealList method is called when the user either saves or cancels the the process. This code mentions the steps when user saves the meal.
+            // A new index is created where a new meal will be inserted
+            // a new meal is appended to the Meal array
+            // The new row is inserted inthe table view from bottom.
             // Add a new meal
             let newIndexPath = IndexPath(row: meals.count, section: 0)
             meals.append(meal)
