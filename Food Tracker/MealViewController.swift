@@ -66,7 +66,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        // The info dictionary contains multiple representations of the image, and this uses the original.
+        // The info dictionary contains multiple representations of the image, and this uses the original. selectedImage is forced unwrapped as UIImage because we know that is of type UIImage. The info dectionary takes Any object so we can safely downcast to UIImage. 
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Set photoImageView to display selected image
