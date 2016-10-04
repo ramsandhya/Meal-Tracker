@@ -152,6 +152,16 @@ class MealTableViewController: UITableViewController  {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /* This method prepares for the segue process 
+     We need to differentiate segue with the Identifier so that we know if the segue is happening from the Save button(to add a new meal) or from the tableView cell(to edit the existing meal)
+     If the segue is to edit 
+        then we identify the destination ViewController - which is mealDetailController
+        we identify the cell which user clicked to edit and save it to selectedMealCell
+        we identify the index by passing the cell as a parameter and save it to indexPath
+        we indentify the meal by passing the index of the meal as a parameter and save it to selectedMeal
+        we assign that meal to the meal property of the mealDetailController which is MealViewController
+     Else if the segue is to add a new meal then the process is defined in the prepare method in MealViewController
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
             let mealDetailController = segue.destination as! MealViewController
