@@ -78,7 +78,15 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     // MARK: Navigation
     
-    
+    /*
+     We want to differentiate on the dismissal of meal scene based on its presentation.
+     If the meal scene is presented by the add button in the Navigation bar:
+     We identify the boolean if the presenting ViewController is UINavigationController then we save it in the constant isPresentingInAddMealMode
+     we pass this reference in the if statement to see if it is true- then dismiss the contoller (Initially, this ViewController was presented modally with add button)
+     Else statement deals with the user landing in the Meal scene by clicking on a single meal cell- to edit it
+     In this case the MealViewController was presented by push method unlike modally during add new meal case
+     The MealViewController is now at the top of the Navigation stack. SO we need to pop it by popViewController method.
+     */
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         
         // Depending on style of presentation (modal or push presentation), this view Contoroller needs to be dismissed in two different ways.

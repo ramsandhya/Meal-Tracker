@@ -88,7 +88,9 @@ class MealTableViewController: UITableViewController  {
     }
     
     // @IBAction is a special annotation which can be used to bind the function with some event. When save button is clicked this func is called.
-    // 
+    /*
+     The first line inside the (second if statement) updates the appropriate entry in meals to store the updated meal information. The second line reloads the appropriate row in the table view to display the changed data.
+     */
     @IBAction func unwindToMealList(sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
             
@@ -159,7 +161,7 @@ class MealTableViewController: UITableViewController  {
         we identify the cell which user clicked to edit and save it to selectedMealCell
         we identify the index by passing the cell as a parameter and save it to indexPath
         we indentify the meal by passing the index of the meal as a parameter and save it to selectedMeal
-        we assign that meal to the meal property of the mealDetailController which is MealViewController
+        we assign that meal object to the meal property of the mealDetailController which is MealViewController
      Else if the segue is to add a new meal then the process is defined in the prepare method in MealViewController
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
