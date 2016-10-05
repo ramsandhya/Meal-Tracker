@@ -113,7 +113,7 @@ class MealTableViewController: UITableViewController  {
         }
     }
 
-    
+    // Additional delegate method to support editing
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -121,7 +121,9 @@ class MealTableViewController: UITableViewController  {
     }
     
 
-    
+    // To perform any sort of editing on the table view we need to take help of its delegate methods
+    // meal.remove method removes the corresponding Meal object(corresponding row) from the meal array- data model
+    // Delegate method "commit editingStyle" is in charge of managing the table rows when it is in the editing mode
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
